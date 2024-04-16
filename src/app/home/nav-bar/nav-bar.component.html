@@ -1,0 +1,16 @@
+<nav>
+    <div class="logo">
+      <img src="../../../assets/LogoMBpng.png" alt="Logo" />
+    </div>
+      <div class="shifts">
+          <a (click)="showEditShifts()">Add Shifts</a>
+          <a (click)="showAllUsers()" *ngIf="isAdminUser">Show all users</a>
+          <a (click)="showAllShifts()" *ngIf="isAdminUser">Show all shifts</a>
+        </div>
+        <div class="user">
+          <span class="hello-user" *ngIf="currentUser">Hello {{currentUser.fName}}</span>
+          <a class="edit-profile" (click)="showEditProfile()">Edit Profile</a>
+          <a class="log-out" (click)="logOut()">Log Out</a>
+        </div>
+  </nav>
+  

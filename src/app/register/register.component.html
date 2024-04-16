@@ -1,0 +1,198 @@
+<!-- <app-nav-bar-simple></app-nav-bar-simple> -->
+<div class="container">
+  <div class="container-form">
+    <div class="title-section">
+      <img src="../../assets/LogoMBpng.png" />
+      <h2>CREATE AN ACCOUNT</h2>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="addUser()">
+      <div class="section">
+        <div class="section-fname">
+          <i class="bi bi-person"></i>
+          <input
+            name="FirstName"
+            type="text"
+            placeholder="First Name"
+            formControlName="fName"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="fName?.touched && fName.errors?.['required']"
+          >Required</span
+        >
+        <span class="error-message" *ngIf="fName.errors?.['pattern']"
+          >Only letters are allowed (min 2 characters), and the first one must
+          be capitalized.</span
+        >
+        <hr />
+        <div class="section-lname">
+          <i class="bi bi-person"></i>
+          <input
+            name="LastName"
+            type="text"
+            placeholder="Last Name"
+            formControlName="lName"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="lName?.touched && lName.errors?.['required']"
+          >Required</span
+        >
+        <span class="error-message" *ngIf="lName.errors?.['pattern']"
+          >Only letters are allowed (min 2 characters), and the first one must
+          be capitalized.</span
+        >
+        <hr />
+        <div class="section-age">
+          <i class="bi bi-cake2"></i>
+          <input
+            name="Age"
+            type="number"
+            placeholder="Insert your age"
+            formControlName="age"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="age?.touched && age.errors?.['required']"
+          >Required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="(age?.value < 18 || age?.value > 65) && age?.valid"
+          >Age must be between 18 and 65.</span
+        >
+        <hr />
+        <div class="section-department">
+          <i class="bi bi-folder-plus"></i>
+          <select name="department" formControlName="department">
+            <option
+              class="first-option"
+              value="default-value"
+              [defaultSelected]="true"
+              hidden
+            >
+              Please select an option
+            </option>
+            <option value="HR">HR</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Accounting">Accounting</option>
+          </select>
+        </div>
+        <span
+          class="error-message"
+          *ngIf="department.touched && department.errors?.['required']"
+          >Required</span
+        >
+        <hr />
+        <div class="section-username">
+          <i class="bi bi-person"></i>
+          <input
+            name="Username"
+            type="text"
+            placeholder="Username"
+            formControlName="username"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="username.touched && username.errors?.['required']"
+          >Required</span
+        >
+        <span class="error-message" *ngIf="username.errors?.['pattern']"
+          >Username must have an uppercase letter, a lowercase letter, a number
+          and a special character.</span
+        >
+        <hr />
+        <div class="section-email">
+          <i class="bi bi-envelope-at"></i>
+          <input
+            name="Email"
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="email?.touched && email.errors?.['required']"
+          >Required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="
+          email?.dirty && email.errors?.['invalidEmail']
+          "
+          >The email address format is invalid.</span
+        >
+        <hr />
+        <div class="section-password">
+          <i class="bi bi-lock"></i>
+          <input
+            name="Password"
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="password.touched && password.errors?.['required']"
+          >Required</span
+        >
+        <span class="error-message" *ngIf="password.errors?.['pattern']"
+          >The password length must equal with 6 and contain a lowercase letter,
+          an uppercase letter, a number and a special character.</span
+        >
+        <hr />
+        <div class="section-confirm-password">
+          <i class="bi bi-lock"></i>
+          <input
+            name="ConfirmPassword"
+            type="password"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="confirmPassword.touched && confirmPassword.errors?.['required']"
+          >Required</span
+        ><br />
+        <span
+          class="error-message"
+          *ngIf="password.valid && registerForm.hasError('passwordMismatch')"
+          >Password and confirm password must be equal.</span
+        >
+        <hr />
+      </div>
+      <div>
+        <span class="error-message" *ngIf="emailExist && !usernameExist"
+          >This email is already registered</span
+        >
+        <span class="error-message" *ngIf="usernameExist && !emailExist"
+          >This username is already registered</span
+        >
+        <span class="error-message" *ngIf="validData && !registerForm.touched">
+          Please complete all fields before submitting the form.
+        </span>
+      </div>
+
+      <div class="buttons">
+        <div class="div-register-button">
+          <input class="register-button" type="submit" value="Register" />
+        </div>
+        <div class="login-redirect">
+          <span>Already have an account?</span>
+          <a href="#" routerLink="/loginpage"
+            >Login <i class="bi bi-box-arrow-in-right"></i
+          ></a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

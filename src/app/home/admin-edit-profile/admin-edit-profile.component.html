@@ -1,0 +1,141 @@
+<app-nav-bar-simple></app-nav-bar-simple>
+<div class="container">
+  <div class="container-form">
+    <div class="title-section">
+      <h1>Edit Profile - Admin</h1>
+    </div>
+    <form [formGroup]="editProfileIfAdmin" (ngSubmit)="editProfile()">
+      <hr />
+      <div class="section">
+        <div class="section-fname">
+          <i class="bi bi-person"></i>
+          <input
+            name="FirstName"
+            type="text"
+            placeholder="First Name"
+            formControlName="editfName"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="editfName?.touched && editfName.errors?.['required']"
+          >Required</span
+        >
+        <span class="error-message" *ngIf="editfName.errors?.['pattern']"
+          >Only letters are allowed (min 2 characters), and the first one must
+          be capitalized.</span
+        >
+        <hr />
+        <div class="section-lname">
+          <i class="bi bi-person"></i>
+          <input
+            name="LastName"
+            type="text"
+            placeholder="Last Name"
+            formControlName="editlName"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="editlName?.touched && editlName.errors?.['required']"
+          >Required</span
+        >
+        <span class="error-message" *ngIf="editlName.errors?.['pattern']"
+          >Only letters are allowed (min 2 characters), and the first one must
+          be capitalized.</span
+        >
+        <hr />
+        <div class="section-age">
+          <i class="bi bi-cake2"></i>
+          <input
+            name="Age"
+            type="number"
+            placeholder="Insert your age"
+            formControlName="editage"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="editage?.touched && editage.errors?.['required']"
+          >Required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="(editage?.value < 18 || editage?.value > 65) && editage?.valid"
+          >Age must be between 18 and 65.</span
+        >
+        <hr />
+        <div class="section-username">
+          <i class="bi bi-person"></i>
+          <input
+            name="Username"
+            type="text"
+            placeholder="Username"
+            formControlName="editusername"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="editusername.touched && editusername.errors?.['required']"
+          >Required</span
+        >
+        <span class="error-message" *ngIf="editusername.errors?.['pattern']"
+          >Username must have an uppercase letter, a lowercase letter, a number
+          and a special character.</span
+        >
+        <hr />
+        <div class="section-email">
+          <i class="bi bi-envelope-at"></i>
+          <input
+            name="Email"
+            type="email"
+            placeholder="Email"
+            formControlName="editemail"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="editemail?.touched && editemail.errors?.['required']"
+          >Required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="
+          editemail?.dirty && editemail.errors?.['invalidEmail']
+          "
+          >The email address format is invalid.</span
+        >
+        <hr />
+        <div class="section-password">
+          <i class="bi bi-lock"></i>
+          <input
+            name="Password"
+            type="password"
+            placeholder="Password"
+            formControlName="editpassword"
+          />
+        </div>
+        <span
+          class="error-message"
+          *ngIf="editpassword.touched && editpassword.errors?.['required']"
+          >Required</span
+        >
+        <span class="error-message" *ngIf="editpassword.errors?.['pattern']"
+          >The password length must equal with 6 and contain a lowercase letter,
+          an uppercase letter, a number and a special character.</span
+        >
+        <hr />
+      </div>
+      <span *ngIf="profilUpdated" class="succes-message">Profile Updated</span>
+      <div class="buttons">
+        <input class="save-button" type="submit" value="Save" />
+        <input
+          (click)="closeEditProfile()"
+          class="close-button"
+          type="button"
+          value="Close"
+        />
+      </div>
+    </form>
+  </div>
+</div>

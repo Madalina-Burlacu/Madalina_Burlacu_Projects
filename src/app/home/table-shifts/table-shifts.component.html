@@ -1,0 +1,63 @@
+<div id="containerfilterShifts">
+  <div id="filterShifts">
+    <div>
+      <input type="date" id="startDate" [(ngModel)]="startDate"/>
+      <input type="date" id="endDate" [(ngModel)]="endDate"/>
+      <button id="filterByDate" (click)="searchByDate()">Filter by Date</button>
+    </div>
+    <div>
+      <input type="text" id="name" placeholder="Insert the shift name" [(ngModel)]="shiftsWorkplaceFilter" />
+      <button (click)="searchByShiftWorkplace()" id="filterByName">Filter by Name</button>
+    </div>
+  </div>
+  <button (click)="resetFilter()" id="resetFilter">Reset filter</button>
+</div>
+
+<div class="table-section">
+  <div class="table-title">
+    <h1 *ngIf="currentUser">{{ currentUser.fName }}'s Shifts</h1>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Shift Slug</th>
+          <th scope="col">Shift Place</th>
+          <th scope="col">Date</th>
+          <th scope="col">Start Hour</th>
+          <th scope="col">End Hour</th>
+          <th scope="col">Price Per Hour</th>
+          <th scope="col">Earn/Shift</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="shifts">
+        <tr *ngFor="let shift of shifts">
+          <td scope="col">{{ shift.shiftSlug }}</td>
+          <td scope="col">{{ shift.workplace }}</td>
+          <td scope="col">{{ shift.shiftDate }}</td>
+          <td scope="col">{{ shift.shiftStartTime }}</td>
+          <td scope="col">{{ shift.shiftEndTime }}</td>
+          <td scope="col">{{ shift.hourlyWage }}</td>
+          <td scope="col">{{ shift.dailyPay }}</td>
+          <td scope="col">
+            <div class="table-buttons">
+                <input routerLink="/user/editshift/{{shift.shiftSlug}}" class="editShift" type="button" value="Edit"/>
+                <input (click)="delete(shift.shiftSlug)" class="deleteShift" type="button" value="Delete" />
+            </div>
+            
+        </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="reports">
+      <div class="reports-title"><h3>Reports:</h3></div>
+      <div class="profitable-month" *ngIf="mostProfitableMonth">
+        <span>The most profitable month is: <b>{{ mostProfitableMonth?.month }} = {{ mostProfitableMonth?.earnings }}</b>.</span>
+      </div>
+    </div>
+
+  </div>
+</div>

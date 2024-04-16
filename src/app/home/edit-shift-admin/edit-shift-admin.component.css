@@ -1,0 +1,58 @@
+h1 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2%;
+    font-weight: bold;
+  }
+  
+  #add_shift {
+    width: 50%;
+    margin: 5% auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    border-radius: 50px;
+  }
+  
+  #shift_form input,
+  #shift_form select,
+  #shift_form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+  }
+  
+  #shift_form input[type="button"],
+  #shift_form input[type="submit"] {
+    background: #3aaba7;
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 45%;
+  }
+  
+  #shift_form input[type="button"]:hover,
+  #shift_form input[type="submit"]:hover {
+    background: #218c87;
+  }
+  
+  #form-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+  }
+  .first-option {
+    color: #808080;
+  }
+  
+  .error-message{
+    color: red;
+    padding: 5px 0;
+  }

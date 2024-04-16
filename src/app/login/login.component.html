@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="container-form">
+    <div class="title-section">
+      <img src="../../assets/LogoMBpng.png" />
+      <h2>LOG IN</h2>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="section">
+        <div class="section-email">
+          <i class="bi bi-envelope-at"></i>
+          <input type="text" placeholder="Email" formControlName="email" />
+        </div>
+        <hr />
+        <div class="section-password">
+          <i class="bi bi-lock"></i>
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <hr />
+      </div>
+      <span class="error-message" *ngIf="invalidCredentialsComp">
+        Email or password is invalid.
+      </span>
+      <div class="buttons">
+        <div class="div-login-button">
+          <input
+            [disabled]="!completedInputs"
+            [ngClass]="{
+              'login-button': completedInputs,
+              'disabled-button': !completedInputs
+            }"
+            type="submit"
+            value="Log in"
+          />
+        </div>
+      </div>
+    </form>
+    <div class="other-buttons">
+      <div class="without-account">
+        <span>Don't have an account?</span>
+        <a routerLink="/registerpage"
+          >Register <i class="bi bi-box-arrow-in-right"></i
+        ></a>
+      </div>
+
+      <div class="forgot-password">
+        <span>Forgot Password</span>
+        <a (click)="showEmailDivOnClick()"
+          >Click here! <i class="bi bi-box-arrow-in-right"></i
+        ></a>
+      </div>
+      <div *ngIf="showEmailDiv" id="emailForgotPasswordDiv">
+        <hr />
+        <div class=forgotpassDiv>
+          <i class="bi bi-envelope-at"></i>
+          <input
+            id="emailForgotPassword"
+            type="text"
+            placeholder="Email"
+            [(ngModel)]="emailForDelete"
+            (focus)="resetErrors()"
+            (blur)="checkErrors()"
+          />
+        </div>
+
+        <hr />
+        <span
+          class="error-message"
+          *ngIf="invalidEmailforDelete && !inputFocused"
+          >Please insert an email address.
+        </span>
+        <span class="error-message" *ngIf="emailNotFound && !inputFocused"
+          >Email not found. Try again!</span
+        >
+        <div class="buttons-forgot">
+          <input
+            (click)="confirmDeleteUser()"
+            class="delete-button"
+            type="submit"
+            value="Delete user"
+          />
+          <input
+            (click)="closeDelete()"
+            class="exit-button"
+            type="submit"
+            value="Close"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

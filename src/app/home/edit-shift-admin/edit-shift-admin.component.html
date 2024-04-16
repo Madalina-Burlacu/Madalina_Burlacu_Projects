@@ -1,0 +1,63 @@
+<div id="add_shift">
+    <form id="shift_form" [formGroup]="editShiftFormAdmin" (ngSubmit)="editShift()">
+      <h1 id="labelAdd">Edit Shift - Admin</h1>
+      <input id="shiftDate" type="date" formControlName="editShiftDate" />
+      <span *ngIf="editShiftDate?.touched && editShiftDate.errors?.['required']" class="error-message">Required</span
+        >
+      <br />
+      <input id="startTime" type="time" formControlName="editShiftStartTime" />
+      <span *ngIf="editShiftStartTime?.touched && editShiftStartTime.errors?.['required']" class="error-message">Required</span
+        >
+      <br />
+      <input id="endTime" type="time" formControlName="editShiftEndTime" />
+      <span *ngIf="editShiftEndTime?.touched && editShiftEndTime.errors?.['required']" class="error-message">Required</span
+        >
+      <br />
+      <select name="location" formControlName="editWorkplace">
+        <option
+          class="first-option"
+          value="default-value"
+          [defaultSelected]="true"
+          hidden
+        >
+          Please select an option
+        </option>
+        <option value="Office">Office</option>
+        <option value="Remote">Remote</option></select
+      >
+      <span *ngIf="editWorkplace?.touched && editWorkplace.errors?.['required']" class="error-message">Required</span
+        >
+      <br />
+      <input
+        id="paid"
+        type="number"
+        placeholder="Hourly wage"
+        formControlName="editHourlyWage"
+      />
+      <span *ngIf="editHourlyWage?.touched && editHourlyWage.errors?.['required']" class="error-message">Required</span
+        >
+      <br />
+      <input
+        id="shiftSlug"
+        type="text"
+        placeholder="Shift slug"
+        formControlName="editShiftSlug"
+      /><br />
+      <textarea
+        col="50"
+        row="4"
+        placeholder="Insert your comments"
+        formControlName="editComments"
+      >
+      </textarea
+      >
+      <span *ngIf="editComments?.touched  && editComments.errors?.['required']" class="error-message">Required</span
+        >
+      <br />
+      <div id="form-buttons">
+        <input id="save_shift" type="submit" value="Save" />
+        <input (click)="closeEditShift()" id="close_shift" type="button" value="Close" />
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,65 @@
+<app-nav-bar-simple></app-nav-bar-simple>
+<div id="containerfilterUsers">
+  <div id="containerfilter">
+    <div id="filter">
+      <input
+        type="text"
+        id="name"
+        placeholder="Insert the last name"
+        [(ngModel)]="lNameUser"
+      />
+      <button (click)="searchByName()" id="filterByName">Filter name</button>
+    </div>
+    <button (click)="resetFilter()" id="resetFilter">Reset filter</button>
+  </div>
+</div>
+
+<div class="table-section">
+  <div class="close-button">
+    <input (click)="close()" class="closeButton" type="button" value="Close" />
+  </div>
+  <div class="table-title">
+    <h1>All users</h1>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Age</th>
+          <th scope="col">Username</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="users">
+        <tr *ngFor="let user of users">
+          <td scope="col">{{ user.fName }}</td>
+          <td scope="col">{{ user.lName }}</td>
+          <td scope="col">{{ user.email }}</td>
+          <td scope="col">{{ user.age }}</td>
+          <td scope="col">{{ user.username }}</td>
+          <td>
+            <div class="table-buttons">
+              <input
+                routerLink="/home/admin/editprofile/{{ user.uid }}"
+                class="editUser"
+                type="button"
+                value="Edit"
+              />
+              <input
+                (click)="deleteUser(user.uid)"
+                class="deleteUser"
+                type="button"
+                value="Delete"
+              />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div id="add_shift">
+  <form id="shift_form" [formGroup]="addShiftsForm" (ngSubmit)="addShifts()">
+    <h1 id="labelAdd">Add Shifts</h1>
+    <input id="shiftDate" type="date" formControlName="shiftDate" />
+    <span *ngIf="shiftDate?.touched && shiftDate.errors?.['required']" class="error-message">Required</span
+    ><br />
+    <input id="startTime" type="time" formControlName="shiftStartTime" />
+    <span *ngIf="shiftStartTime?.touched && shiftStartTime.errors?.['required']" class="error-message">Required</span
+        ><br />
+    <input id="endTime" type="time" formControlName="shiftEndTime" />
+    <span *ngIf="shiftEndTime?.touched && shiftEndTime.errors?.['required']" class="error-message">Required</span
+        ><br />
+    <select name="location" formControlName="workplace">
+      <option
+        class="first-option"
+        value="default-value"
+        [defaultSelected]="true"
+        hidden
+      >
+        Please select an option
+      </option>
+      <option value="Office">Office</option>
+      <option value="Remote">Remote</option></select
+    >
+    <span *ngIf="workplace?.touched && workplace.errors?.['required']" class="error-message">Required</span
+        ><br />
+    <input
+      id="paid"
+      type="number"
+      placeholder="Hourly wage"
+      formControlName="hourlyWage"
+    />
+    <span *ngIf="hourlyWage?.touched && hourlyWage.errors?.['required']" class="error-message">Required</span
+        >
+    <br />
+    <input
+      id="shiftSlug"
+      type="text"
+      placeholder="Shift slug"
+      formControlName="shiftSlug"
+    />
+    <span *ngIf="shiftSlug?.touched && shiftSlug.errors?.['required']" class="error-message">Required</span
+        ><br />
+    <textarea
+      col="50"
+      row="4"
+      placeholder="Insert your comments"
+      formControlName="comments"
+    >
+    </textarea
+    >
+    <span *ngIf="comments?.touched  && comments.errors?.['required']" class="error-message">Required</span
+        >
+    <br />
+    <span *ngIf="isUniqueSlugComponent" class="error-message"
+      >Shift Slug must be unique.</span
+    >
+    <span *ngIf="invalidForm" class="error-message"
+      >All inputs are required.</span
+    >
+    <div id="form-buttons">
+      <input id="save_shift" type="submit" value="Save" />
+      <input (click)="closeAddShift()" id="close_shift" type="button" value="Close" />
+    </div>
+  </form>
+</div>
