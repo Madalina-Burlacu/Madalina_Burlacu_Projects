@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Register</title>
+        <link rel="stylesheet" href="style_register.css" />
+    </head>
+    <body>
+        <div id="container">
+
+        <div id="welcome">
+
+            <h2 id="title_welcome">Welcome Back on<br>MBooks</h2>
+            <span id="text_welcome">To keep connected with us please log in with your personal info.</span>
+            <input id="loginButton" type="submit" value="Login" />
+        </div>
+        <div id="register_user">
+            <img id="logo" src="../Images/Logo.png" alt="Logo">
+            <h1>Register</h1>
+            <p>Please insert your personal info</p>
+            <form class="form_register" id="form_register">
+                <input
+                    type="text"
+                    id="email_register"
+                    placeholder="E-mail"
+                    required
+                />
+                <p id="p_email_register"></p>
+
+                <input
+                    type="text"
+                    id="username_register"
+                    placeholder="Username"
+                    required
+                />
+                <p id="p_username_register"></p>
+
+                <input
+                    type="password"
+                    id="pass_register"
+                    placeholder="Password"
+                    required
+                />
+                <p id="p_pass_register"></p>
+
+                <input
+                    type="password"
+                    id="confirm_pass_register"
+                    placeholder="Confirm password"
+                    required
+                />
+                <p id="p_confirm_pass_register"></p>
+
+                <input
+                    type="text"
+                    id="fName_register"
+                    placeholder="First Name"
+                    required
+                />
+                <p id="p_fName_register"></p>
+
+                <input
+                    type="text"
+                    id="lName_register"
+                    placeholder="Last Name"
+                    required
+                />
+                <p id="p_lName_register"></p>
+
+                <input
+                    type="number"
+                    id="age_register"
+                    placeholder="Age"
+                    required
+                />
+                <p id="p_age_register"></p>
+
+                <input id="registerButton" type="submit" value="Register" />
+            </form>
+        </div>
+    </div>
+
+        <script src="script_register.js"></script>
+    </body>
+</html>

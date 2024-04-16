@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style_login.css">
+</head>
+<body>
+    <div id="login_user">
+        <img id="logo" src="../Images/Logo.png" alt="Logo">
+        <h1>Sign in</h1>
+        <p>Please insert your username and password</p>
+        <form class="form_login" id="form_login">
+
+            <input placeholder="Insert your username" type="text" id="username_login" required><br>
+
+            <input placeholder="Insert your password" type="password" id="password_login" required>
+            <p id="status"></p>
+
+            <input type="button" type="submit" value="Log in" id="login_button">
+            <input type="button" type="submit" value="Register" id="register_button"><br>
+            <span>Forgot password?<br> <button id="forgotPass" href="">Click here</button></span>
+    </div>
+
+    <script src="script_login.js"></script>
+</body>
+</html>

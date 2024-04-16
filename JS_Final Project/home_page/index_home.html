@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home Page</title>
+
+        <link rel="stylesheet" href="style_home.css" />
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <header id="header_page">
+            <img id="logo" src="..//Images/Logo.png" alt="Logo image" />
+            <button id="addShift">Add Shifts</button>
+            <button id="editProfile">Edit Profile</button>
+            <span id="helloUser"></span>
+
+            <input type="button" value="Log Out" id="logOut" />
+        </header>
+
+        <!-- Edit profile -->
+        <div id="edit_profile">
+            <h3>Edit Profile</h3>
+            <form id="edit_form">
+                <input type="text" id="username_user" readonly required /><br />
+                <input type="text" id="email_user" readonly required /><br />
+                <input
+                    type="password"
+                    id="pass_user"
+                    placeholder="Password"
+                    required
+                /><br />
+                <input
+                    type="text"
+                    id="fName_user"
+                    placeholder="First Name"
+                    required
+                /><br />
+
+                <input
+                    type="text"
+                    id="lName_user"
+                    placeholder="Last Name"
+                    required
+                /><br />
+
+                <input
+                    type="number"
+                    id="age_user"
+                    placeholder="Age"
+                    required
+                /><br />
+            </form>
+            <button id="saveProfile">Save</button>
+            <button id="closeProfile">Close</button>
+        </div>
+
+        <!-- Add shift -->
+        <div id="add_shift">
+            <form id="shift_form">
+                <h3 id="labelAdd">Add Shifts</h3>
+                <input id="shiftDate" type="date" required /><br />
+                <input id="startTime" type="time" required /><br />
+                <input id="endTime" type="time" required /><br />
+                <select name="location" id="shiftPlace" required>
+                    <option value="Workplace " disabled selected hidden>
+                        Workplace
+                    </option>
+                    <option value="office">Office</option>
+                    <option value="hybrid">Hybrid</option>
+                    <option value="remote">Remote</option></select
+                ><br />
+                <input
+                    id="paid"
+                    type="number"
+                    placeholder="Hourly wage"
+                    required
+                /><br />
+                <input
+                    id="shiftSlug"
+                    type="text"
+                    placeholder="Shift slug"
+                    required
+                /><br />
+                <textarea
+                    col="50"
+                    row="4"
+                    placeholder="Insert your comments"
+                ></textarea
+                ><br />
+                <p id="status"></p>
+                <input id="save_shift" type="button" value="Save" />
+                <input id="close_shift" type="button" value="Close" />
+            </form>
+        </div>
+
+        <!-- Filter shifts -->
+        <div id="containerfilterShifts">
+            <div id="filterShifts">
+                <div>
+                    <input type="date" id="startDate" />
+                    <input type="date" id="endDate" />
+                    <button id="filterByDate">Filter by Date</button>
+                </div>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Insert the shift name"
+                />
+                <button id="filterByName">Filter by Name</button>
+            </div>
+            <button id="resetFilter">Reset filter</button>
+        </div>
+
+        <canvas id="chartCanvas" width="100" height="40"></canvas>
+
+        <!-- Table for shifts -->
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Shift Slug</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Start Hour</th>
+                    <th scope="col">End Hour</th>
+                    <th scope="col">Price Per Hour</th>
+                    <th scope="col">Shift Place</th>
+                    <th scope="col">Earn/Shift</th>
+                    <th scope="col">Edit Shift</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        <script src="script_home.js"></script>
+    </body>
+</html>

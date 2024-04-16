@@ -1,0 +1,259 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #e3e7e7;
+    /* overflow: hidden; */
+}
+
+/* Header styles */
+#logo {
+    border-radius: 50%;
+    height: 70px;
+    display: inline-block;
+}
+
+/* Image hover effect */
+#logo:hover::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.1);  
+    transition: all 0.8s ease;
+}
+
+#logo:hover::after,
+#logo:hover{
+    cursor: pointer;
+} 
+
+#header_page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #3aaba7;
+    color: #fafafa;
+}
+
+#header_page img {
+    border-radius: 50%;
+    height: 100px;
+    margin-right: 10px;
+}
+
+#header_page button {
+    color: #fafafa;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#logOut,
+#header_page button {
+    background: #5fc1be;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    transform-origin: center center;
+}
+
+#logOut:hover,
+#header_page button:hover {
+    background: #218c87;
+    transform: scale(1.2);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.8s ease;
+}
+
+#helloUser {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 10px;
+}
+
+#containerfilterShifts{
+    display: flex;
+    justify-content: center;
+}
+
+#filterShits{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#filterShifts input{
+    margin-top: 5%;
+}
+
+/* Table styles */
+table {
+    width: 65%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    border: 2px solid #fafafa;
+
+}
+
+thead {
+    background: #3aaba7;
+    color: #fafafa;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+.tableButton {
+    background-color: #5fc1be;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    margin-bottom: 2px;
+}
+
+/* Add shift form styles */
+h3 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+#add_shift {
+    display: none;
+    width: 65%;
+    margin: 5% auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+#shift_form input,
+#shift_form select,
+#shift_form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#shift_form input[type="button"],
+#saveProfile,
+#closeProfile
+ {
+    background: #3aaba7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 1% auto;
+    width: 15%;
+}
+
+#resetFilter,
+#filterByDate,
+#filterByName{
+    background: #3aaba7;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    height: fit-content;
+    cursor: pointer;
+    margin: 5% 1%;
+    border-radius: 15px
+}
+
+#shift_form input[type="button"]:hover {
+    background: #218c87;
+}
+
+#status {
+    margin: 10px auto;
+    font-size: 16px;
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Edit profile form styles */
+#edit_profile {
+    display: none;
+    width: 65%;
+    margin: 5% auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+#edit_form input[type="text"],
+#edit_form input[type="password"],
+#edit_form input[type="number"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Graph */
+#chartCanvas {
+    display: none;
+    max-width: 50%;
+    max-height: 35%;
+    width: 100%;
+    height: auto;
+    margin: 2% auto;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    #add_shift,
+    #edit_profile {
+        width: 95%;
+    }
+    table{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #add_shift,
+    #edit_profile {
+        width: 95%;
+    }
+    table{
+        width: 50%;
+    }
+}

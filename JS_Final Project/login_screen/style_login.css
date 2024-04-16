@@ -1,0 +1,150 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #e3e7e7;
+}
+
+/* Login user section styles */
+#login_user {
+    width: 50%;
+    margin: 5% auto;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+#logo{
+    border-radius: 50%;
+    height: 150px;
+    margin: 1% 5%;
+    position: relative;
+    display: inline-block;
+}
+
+/* Image hover effect */
+#logo:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.1);  
+    transition: all 0.8s ease;
+}
+
+#logo:hover::after,
+#logo:hover{
+    cursor: pointer;
+} 
+
+#login_user h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#login_user p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#form_login input[type="text"],
+#form_login input[type="password"] {
+    width: 50%;
+    margin: 1% 0;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+#form_login input[type="text"]::placeholder,
+#form_login input[type="password"]::placeholder {
+    color: #999999;
+}
+
+#form_login input[type="text"]:focus,
+#form_login input[type="password"]:focus {
+    outline: none;
+    border-color: #3aaba7;
+}
+
+#login_button,
+#register_button,
+#forgotPass {
+    background: #5fc1be;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 2% 0px 2% 10px;
+}
+
+#register_button:hover,
+#login_button:hover,
+#forgotPass:hover {
+    background: #218c87;
+    transform: scale(1.2);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.8s ease;
+}
+
+#status {
+    margin: 10px auto;
+    font-size: 14px;
+    font-size: 16px;
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+
+#login_user span {
+    font-size: 14px;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    #login_user {
+        width: 90%;
+    }
+
+    #form_login input[type="text"],
+    #form_login input[type="password"] {
+        width: 75%;
+    }
+
+    #login_button,
+    #register_button {
+        margin: 2% 2% 2% 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #form_login input[type="text"],
+    #form_login input[type="password"] {
+        width: 75%;
+        margin: 1% 2.5%;
+    }
+
+    #login_button,
+    #register_button {
+        margin: 2% 4% 2% 2%;
+    }
+}

@@ -1,0 +1,231 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #e3e7e7;
+}
+
+/* Container styles */
+#container {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: 5% auto;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+/* Welcome section styles */
+#welcome {
+    background: #3aaba7;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fafafa;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#title_welcome {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#text_welcome {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#loginButton,
+#registerButton {
+    background: #3aaba7;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+#logo{
+    border-radius: 50%;
+    height: 100px;
+    margin: -3%;
+    display: inline-block;
+}
+
+/* Image hover effect */
+#logo:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.1);  
+    transition: all 0.8s ease;
+}
+
+#logo:hover::after,
+#logo:hover{
+    cursor: pointer;
+} 
+
+/* Register user section styles */
+#register_user {
+    width: 60%;
+    margin: 5%;
+    padding: 20px;
+}
+
+#form_register input[type="text"],
+#form_register input[type="password"],
+#form_register input[type="number"] {
+    width: 70%;
+    margin: 1% 0;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#form_register input[type="email"] {
+    width: 70%;
+    margin: 1% 0;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#form_register input[type="text"]::placeholder,
+#form_register input[type="email"]::placeholder,
+#form_register input[type="password"]::placeholder,
+#form_register input[type="number"]::placeholder {
+    color: #999999;
+}
+
+#form_register input[type="text"]:focus,
+#form_register input[type="email"]:focus,
+#form_register input[type="password"]:focus,
+#form_register input[type="number"]:focus {
+    outline: none;
+    border-color: #3aaba7;
+}
+
+#registerButton,
+#loginButton {
+    background: #5fc1be;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    transform-origin: center center;
+}
+
+#registerButton:hover,
+#loginButton:hover {
+    background: #218c87;
+    transform: scale(1.2);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.8s ease;
+}
+
+#register_user h1 {
+    font-size: 24px;
+    margin: 2% 0;
+}
+
+#register_user p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 70%;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #welcome,
+    #register_user {
+        width: 100%;
+    }
+
+    #logo{
+        margin: 1% 0% -10% 70%;
+        width: 100px;
+        height: fit-content;
+    }
+
+    #welcome{
+        margin-top: -1%;
+    }
+
+    #logo{
+        position: relative;
+    }
+
+    #register_user p,
+    #form_register input {
+        width: 70%;
+    }
+
+    #registerButton {
+        margin: 2% 4% 2% 0;
+    }
+}
+
+/* Adjust width of paragraphs and inputs for smaller screens */
+@media only screen and (max-width: 480px) {
+    #register_user p {
+        font-size: 12px;
+        width: 75%;
+        margin: 1% 4%;
+    }
+
+    #register_user h1 {
+        font-size: 24px;
+        margin: 2% 4%;
+    }
+
+    #form_register input[type="text"],
+    #form_register input[type="password"],
+    #form_register input[type="number"] {
+        width: 75%;
+        margin: 1% 2.5%;
+    }
+
+    #logo{
+        margin: 0 0 1% 0; 
+        width: 100px;
+        height: fit-content;
+    }
+
+    #form_register input[type="email"] {
+        width: 75%;
+        margin: 1% 2.5%;
+    }
+
+
+    #registerButton{
+        margin: 2% 4% 2% 2%;
+    }
+}
